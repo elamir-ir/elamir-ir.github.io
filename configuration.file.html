@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>فایل پیکربندی</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="configuration.html">« پیکربندی زمان&zwnj;اجرا</a></li>
+      <li style="float: right;"><a href="configuration.file.per-user.html">.user.ini فایل های »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="configuration.html">پیکربندی زمان&zwnj;اجرا</a></li>
+    <li>فایل پیکربندی</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="configuration.file" class="sect1">
+  <h2 class="title">فایل پیکربندی</h2>
+  
+  <p class="simpara">
+   فایل پیکربندی  (<var class="filename">php.ini</var>) زمانی که برنامه اجرا می‌شود، خوانده می‌شود.
+  برای نسخه های ماژول PHP این فقط یک بار زمانی که وب سرور راه اندازی می شود اتفاق می افتد. برای
+   نسخه‌های <abbr title="Common Gateway Interface">CGI</abbr> و <abbr title="Command Line Interpreter/Interface">CLI</abbr>، این اتفاق در هر فراخوانی رخ می‌دهد.
+
+
+  </p>
+  <p class="para">
+   <var class="filename">php.ini</var> : در این آردس ها یافت می‌شود (به ترتیب)
+   <ul class="itemizedlist">
+    <li class="listitem">
+     <span class="simpara">
+     مکان خاص ماژول SAPI (دستورالعمل <code class="literal">PHPIniDir</code>
+      در آپاچی 2، گزینه خط فرمان <code class="literal">-c</code> در CGI و CLI)
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      متغیر طبیعی  <var class="varname">PHPRC</var> 
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      آدرس فایل  <code class="literal">php.ini</code> را می توان برای نسخه های مختلف PHP تنظیم کرد.
+       ریشه کلیدهای رجیستری به 32 یا 64 بیتی سیستم عامل و PHP نصب شده بستگی دارد. برای PHP 32 بیتی در
+       سیستم عامل 32 بیتی یا PHP 64 بیتی در سیستم عامل 64 بیتی، از <code class="literal">[(HKEY_LOCAL_MACHINE\SOFTWARE\PHP]</code>
+       برای نسخه 32 بیتی PHP در سیستم عامل 64-بیتی استفاده کنید.
+        بیت OS از <code class="literal">[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\PHP]</code>] استفاده می کند.
+      برای نصب بیتی مشابه کلیدهای رجیستری زیر را انجام دهید
+      به ترتیب بررسی می شوند:
+      <code class="literal">[HKEY_LOCAL_MACHINE\SOFTWARE\PHP\x.y.z]</code>,
+      <code class="literal">[HKEY_LOCAL_MACHINE\SOFTWARE\PHP\x.y]</code> و
+      <code class="literal">[HKEY_LOCAL_MACHINE\SOFTWARE\PHP\x]</code>, 
+      که در آن x، y و z به معنای نسخه اصلی، مینور و نسخه PHP است.
+      برای نسخه های 32 بیتی PHP در سیستم عامل 64 بیتی، کلیدهای رجیستری زیر به ترتیب بررسی می شوند:
+      <code class="literal">[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6421Node\PHP\x.y.z]</code>,
+      <code class="literal">[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6421Node\PHP\x.y]</code> و
+      <code class="literal">[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6421Node\PHP\x]</code>, 
+      که در آن x، y و z به معنای نسخه اصلی، مینور و نسخه PHP است.
+      اگر مقداری برای <code class="literal">IniFilePath</code> در هر یک از این کلیدها وجود داشته باشد،
+      اولین مورد یافت شده به عنوان مکان <code class="literal">php.ini</code> استفاده خواهد شد. (فقط ویندوز).
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      <code class="literal">[HKEY_LOCAL_MACHINE\SOFTWARE\PHP]</code> یا
+      <code class="literal">[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\PHP]</code>, مقدار
+      <code class="literal">IniFilePath</code> (Windows only).
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      پوشه کاری فعلی (به جز CLI).
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      پوشه وب سرور (برای ماژول های SAPI)، یا پوشه PHP (در غیر این صورت در ویندوز).
+     </span>
+    </li>
+    <li class="listitem">
+     <span class="simpara">
+      پوشه ویندوز
+       (<var class="filename">C:\windows</var>
+      یا  <var class="filename">C:\winnt</var>) (برای ویندوز), یا
+      <code class="literal">--with-config-file-path</code> گزینه زمان کامپایل
+     </span>
+    </li>
+   </ul>
+  </p>
+  <p class="para">
+   اگر <var class="filename">php-SAPI.ini</var> وجود داشته باشد (که  SAPI در حال استفاده است، به عنوان مثال، <var class="filename">php-cli.ini</var> یا
+   <var class="filename">php-apache.ini</var>)، به جای <var class="filename">php.ini</var> استفاده می شود.
+نام SAPI را می توان با <span class="function"><a href="function.php-sapi-name.html" class="function">php_sapi_name()</a></span> تعیین کرد.
+  </p>
+  <blockquote class="note"><p><strong class="note">Note</strong>: 
+   <p class="para">
+    وب سرور آپاچی هنگام استارت‌آپ پوشه را به حالت تغییر می‌دهد و باعث می‌شود PHP سعی کند فایل <var class="filename">php.ini</var> را در صورت وجود بخواند.
+   </p>
+  </p></blockquote>
+  <p class="para">
+   استفاده از متغیرهای محیطی در <var class="filename">php.ini</var> همانطور که در زیر نشان داده شده است.
+  </p>
+  <p class="para">
+   <div class="example" id="example-27">
+    <p><strong>Example #1 <var class="filename">php.ini</var> متغیر محیطی</strong></p>
+     <div class="example-contents">
+<div class="inicode"><pre class="inicode">; PHP_MEMORY_LIMIT is taken from environment
+memory_limit = ${PHP_MEMORY_LIMIT}</pre>
+</div>
+     </div>
+
+    </div>
+  </p>
+  <p class="para">
+<var class="filename">php.ini</var> دستورالعمل هایی که توسط برنامه های افزودنی مدیریت می شوند در صفحات مربوطه خود برنامه های افزودنی مستند می شوند.
+ <a href="ini.html" class="link">لیست دستورالعمل های اصلی</a> در پیوست موجود است.
+  همه دستورالعمل‌های PHP لزوماً در این راهنما ثبت نمی‌شوند:
+  برای فهرست کامل دستورالعمل‌های موجود در نسخه PHP، لطفاً <var class="filename">php.ini</var> خود را که به خوبی نظر داده شده است، بخوانید.
+   فایل همچنین، می‌توانید <a href="https://github.com/php/php-src/blob/master/php.ini-production" class="link external">&raquo;&nbsp;آخرین <var class="filename">php.ini</var></a> را از Git بیابید.
+   نیز مفید است.
+  </p>
+  <p class="para">
+   <div class="example" id="example-28">
+    <p><strong>Example #2 <var class="filename">php.ini</var> مثال</strong></p>
+    <div class="example-contents">
+<div class="inicode"><pre class="inicode">; هر متنی در یک خط پس از نقطه ویرگول (;) نقل قول نشده نادیده گرفته می شود
+[php] ; نشانگرهای بخش (متن داخل پرانتز) نیز نادیده گرفته می شوند
+; مقادیر بولی را می توان به یکی از موارد زیر تنظیم کرد:
+;    true, on, yes
+; or false, off, no, none
+register_globals = off
+track_errors = yes
+
+;می توانید رشته ها را در دو گیومه قرار دهید
+شامل_مسیر = &quot;.:/usr/local/lib/php&quot;
+
+; با بک‌اسلش مانند هر کاراکتر دیگری رفتار می شود
+شامل_مسیر = &quot;.;c:\php\lib&quot;</pre>
+</div>
+    </div>
+
+    
+   </div>
+  </p>
+  <p class="para">
+   می توان به متغیرهای .ini موجود در فایل های .ini اشاره کرد 
+   مثال : <code class="literal">open_basedir = ${open_basedir}
+   &quot;:/new/dir&quot;</code>.
+  </p>
+  <div class="sect2" id="configuration.file.scan">
+   <h3 class="title">اسکن  پوشه ها</h3>
+
+   <p class="para">
+    پس از خواندن <var class="filename">php.ini</var> امکان پیکربندی فایل های PHP برای اسکن فایل‌های .ini وجود دارد و  در زمان کامپایل می‌توان آن را تنظیم کرد.
+    سپس با تنظیم متغیر محیطی <var class="varname">PHP_INI_SCAN_DIR</var>، دایرکتوری اسکن را می توان در زمان اجرا لغو کرد.
+   </p>
+
+   <p class="para">
+    اسکن چندین دایرکتوری با جدا کردن آنها با
+    جداکننده مسیر مخصوص پلتفرم (<code class="literal">;</code> در Windows، NetWare
+    و RISC OS امکانپذیر است;
+    تمامی پلتفرم‌های دیگر؛ مقدار PHP است
+    در تمامی پلتفرم‌های دیگر مقداری که PHP استفاده می کند به عنوان ثابت <strong><code>PATH_SEPARATOR</code></strong> در دسترس است.
+    اگر پوشه خالی در <var class="varname">PHP_INI_SCAN_DIR</var> داده شود، PHP
+    همچنین دایرکتوری داده شده در زمان کامپایل را از طریق  <strong class="option configure">--with-config-file-scan-dir</strong> اسکن می کند.
+   </p>
+
+   <p class="para">
+    درون هر پوشه،‌ PHP تمام فایل ها با پسوند <code class="literal">.ini</code> را به ترتیب حروف الفبا اسکن می‌کند.
+    لیستی از فایل هایی که بارگزاری شدند، ترتیب آنها با فراخوانی دستور  <span class="function"><a href="function.php-ini-scanned-files.html" class="function">php_ini_scanned_files()</a></span> ،و یا با ران کردن PHP با گزینه <strong class="option unknown">--ini</strong> امکان‌پذیر است.
+   </p>
+
+   <div class="informalexample">
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+با فرض پیکربرندی شدن PHP توسط --with-config-file-scan-dir=/etc/php.d,
+و این آدرس جداکننده است : ...
+
+$ php
+  PHP تمام فایل های درون  /etc/php.d/*.ini را به عنوان فایل های پیکربندی بارگذاری می‌کند. 
+  
+$ PHP_INI_SCAN_DIR=/usr/local/etc/php.d php
+  PHP تمام فای های در /usr/local/etc/php.d/*.ini را بع عنوان فایل های پیکربندی بارگذاری می‌کند.
+
+$ PHP_INI_SCAN_DIR=:/usr/local/etc/php.d php
+  PHP تمام فای های در /usr/local/etc/php.d/*.ini را بع عنوان فایل های پیکربندی بارگذاری می‌کند.
+
+$ PHP_INI_SCAN_DIR=/usr/local/etc/php.d: php
+  PHP تمام فای های در /usr/local/etc/php.d/*.ini را بع عنوان فایل های پیکربندی بارگذاری می‌کند.
+</pre></div>
+    </div>
+   </div>
+  </div>
+ </div></div></div></body></html>

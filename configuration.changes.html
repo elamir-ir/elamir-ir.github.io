@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>چگونه تنظیمات پیکربندی را تغییر دهیم</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="configuration.changes.modes.html">« جایی که تنظیمات پیکربندی انجام می&zwnj;شود</a></li>
+      <li style="float: right;"><a href="langref.html">Language Reference »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="configuration.html">پیکربندی زمان&zwnj;اجرا</a></li>
+    <li>چگونه تنظیمات پیکربندی را تغییر دهیم</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="configuration.changes" class="sect1">
+  <h2 class="title">چگونه تنظیمات پیکربندی را تغییر دهیم</h2>
+  
+  <div class="sect2" id="configuration.changes.apache">
+   <h3 class="title">PHP را به عنوان ماژول APACHE اجرا می‌کنید</h3>
+   <p class="simpara">
+   هتکام استفاده از PHP به عنوان ماژول APACHE، شما همچنان می‌توانید
+   تنظیمات پیکربندی را با استفاده از دستورعمل ها در فایل های (مثلا <var class="filename">httpd.conf</var>) 
+   و <var class="filename">.htaccess</var> پیکربندی APACHE تغییر دهید. شما نیاز به تنظیم دسترسی &quot;AllowOverride Options&quot;
+   یا &quot;AllowOverride All&quot; برای انجام آن دارید.
+   </p>
+   
+   <p class="para">
+   دستورعمل های متعددی در APACHE وجود دارند که به شما امکان تغییر پیکربندی PHP را
+    در APACHE می‌دهند. برای لیستی از دستورعمل که <strong><code>PHP_INI_ALL</code></strong>، 
+    یا <strong><code>PHP_INI_PERDIR</code></strong>، یا <strong><code>PHP_INI_SYSTEM</code></strong>,
+    هستند، نکاهی بر پیوست  <a href="ini.list.html" class="link">لیست دستورعمل های php.ini</a> بندازید.
+   </p>
+   
+   <p class="para">
+    <dl>
+     
+      <dt>
+
+       <code class="systemitem systemitem">php_value</code>
+       <code class="parameter">نام</code>
+       <code class="parameter">مقدار</code>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+       مقدار دستورعمل مشخص شده را تنظیم می‌کند.
+       تنها با دستور های حالت <strong><code>PHP_INI_ALL</code></strong> و <strong><code>PHP_INI_PERDIR</code></strong> می‌تواند استفاده شود.
+       برای پاک‌کردن مقدار تنظیم شده قبلی از <code class="literal">none</code> به جای مقدار استفاده کنید.
+       </p>
+       <blockquote class="note"><p><strong class="note">Note</strong>: 
+        <span class="simpara">
+        از <code class="systemitem systemitem">php_value</code> برای تنظیم مقادیر بولین استفاده نکنید.
+        <code class="systemitem systemitem">php_flag</code>  (پایین را ببینید) باید یه جای آن استفاده شود.
+        </span>
+       </p></blockquote>
+      </dd>
+
+     
+     
+      <dt>
+
+       <code class="systemitem systemitem">php_flag</code>
+       <code class="parameter">نام</code>
+       <code class="parameter">روشن|خاموش</code>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+       برای تنظیم پیکربندی دستورعمل استفاده می‌شود.
+       تنها با دستورعمل های حالت <strong><code>PHP_INI_ALL</code></strong> و <strong><code>PHP_INI_PERDIR</code></strong> می‌تواند استفاده شود.
+       </p>
+      </dd>
+
+     
+     
+      <dt>
+
+       <code class="systemitem systemitem">php_admin_value</code>
+       <code class="parameter">نام</code>
+       <code class="parameter">مقدار</code>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+       مقدار دستورعمل مشخص را تنظیم می‌کند.
+       این  <em class="emphasis">نمیتواند </em> در فایل <var class="filename">.htaccess</var> استفاده شود.
+       هیچ دستورعملی که با <code class="systemitem systemitem">php_admin_value</code>
+       شده باشد نمی‌تواند توسط <var class="filename">.htaccess</var> یا <span class="function"><a href="function.ini-set.html" class="function">ini_set()</a></span> رونویسی شود.
+        برای پاک‌کردن مقدار تنظیم شده قبلی از <code class="literal">none</code> به جای مقدار استفاده کنید.
+       </p>
+      </dd>
+
+     
+     
+      <dt>
+
+       <code class="systemitem systemitem">php_admin_flag</code>
+       <code class="parameter">نام</code>
+       <code class="parameter">روشن|خاموش</code>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+       برای تنظیم پیکربندی بولین دستورعمل استفاده می‌شود.
+        این  <em class="emphasis">نمیتواند </em> در فایل <var class="filename">.htaccess</var> استفاده شود.
+       هیچ دستورعملی که با <code class="systemitem systemitem">php_admin_value</code>
+       شده باشد نمی‌تواند توسط <var class="filename">.htaccess</var> یا <span class="function"><a href="function.ini-set.html" class="function">ini_set()</a></span> رونویسی شود.
+        برای پاک‌کردن مقدار تنظیم شده قبلی از <code class="literal">none</code> به جای مقدار استفاده کنید
+       </p>
+      </dd>
+
+     
+    </dl>
+
+   </p>
+   <p class="para">
+    <div class="example" id="example-29">
+     <p><strong>Example #1 مثال پیکربندی آپاچی</strong></p>
+     <div class="example-contents">
+<div class="inicode"><pre class="inicode">&lt;IfModule mod_php5.c&gt;
+  php_value include_path &quot;.:/usr/local/lib/php&quot;
+  php_admin_flag engine on
+&lt;/IfModule&gt;
+&lt;IfModule mod_php4.c&gt;
+  php_value include_path &quot;.:/usr/local/lib/php&quot;
+  php_admin_flag engine on
+&lt;/IfModule&gt;</pre>
+</div>
+     </div>
+
+    </div>
+   </p>
+   <div class="caution"><strong class="caution">Caution</strong>
+    <p class="para">
+    ثابت های PHP خازج از آن وجود ندارند. به طور مثال در <var class="filename">httpd.conf</var>
+    شما نمی‌توانید از <strong><code>E_ALL</code></strong> یا <strong><code>E_NOTICE</code></strong>
+    برای تنظیم <a href="errorfunc.configuration.html#ini.error-reporting" class="link">گزارش ارور</a> دستورعمل ها 
+    استفاده کنید زیرا آن ها هیچ معنایی نخواند داشت و به عنوان <em class="emphasis">0</em> ارزش گذاری می‌شوند.
+    در عوض، از مقدار بیت‌ماسک مربوطه استفاده کنید. این ثابت ها می‌توانند در <var class="filename">php.ini</var> استفاده شوند.
+    </p>
+   </div>
+  </div>
+  
+  <div class="sect2" id="configuration.changes.windows">
+   <h3 class="title">تغییر پیکربندی PHP از ظریق ریجستری ویندوز</h3>
+   <p class="simpara">
+   هنگام اجرای PHP در ویندوز، مقادیر پیکربندی را می توان بر اساس
+    هر دایرکتوری با استفاده از رجیستری ویندوز تغییر داد. مقادیر پیکربندی 
+    در کلید ریجستری <code class="literal">HKLM\SOFTWARE\PHP\Per Directory Values</code>
+    در کلیدهای فرعی مربوط به نام مسیر ها ذخیره می‌شوند. به عنوان مثال، مقادیر پیکربندی برای 
+    پوشه <code class="literal">c:\inetpub\wwwroot</code> 
+    در کلید <code class="literal">HKLM\SOFTWARE\PHP\Per Directory Values\c\inetpub\wwwroot</code>
+    ذخیره می‌شود. تنظیمات برای آن پوشه برای اسکریپتی در هر پوشه یا پوشه فرعی اجرا می‌شود فعال خواهد شد.
+    مقادیر زیر کلید باید دارای اسم پیکربندی دستورعمل PHP و مقدار رشته را داشته باشند. ثابت های PHP در مقادیر تجزیه نمی شوند.
+     با این حال، فقط مقادیر پیکربندی قابل تغییر در <strong><code>PHP_INI_USER</code></strong> را می توان
+      به این ترتیب تنظیم کرد، مقادیر <strong><code>PHP_INI_PERDIR</code></strong> نمی توانند، زیرا این مقادیر 
+      پیکربندی برای هر درخواست دوباره خوانده می شوند.
+   </p>
+  </div>
+  
+  <div class="sect2" id="configuration.changes.other">
+   <h3 class="title">سایر رابط های PHP</h3>
+   <p class="para">
+   بدون توجه به چگونگی اجرا PHP، شما می‌توانید مقادیر مشخصی را در زمان اجرای اسکریپت 
+   توسط <span class="function"><a href="function.ini-set.html" class="function">ini_set()</a></span> تغییر دهید. مستند آن را در  صفحه <span class="function"><a href="function.ini-set.html" class="function">ini_set()</a></span>
+   برای اطلاعات بیشتر ببینید.
+   </p>
+   <p class="para">
+   اگر شما به دیدن لیست کامل تنظیمات پیکربندی با مقادیر فعلی شان بر روی کامپیوتر خود علاقه‌مند هستید،‌
+    می‌توانید تابع  <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span> را اجرا کنید و نتایج صفحه را بازبینی کنید. شما هم‌چنین 
+    می‌توانید به مقادیر پیکربندی هر یک از دستورعمل ها به وسیله <span class="function"><a href="function.ini-get.html" class="function">ini_get()</a></span> 
+    یا <span class="function"><a href="function.get-cfg-var.html" class="function">get_cfg_var()</a></span> دسترسی پیدا کنید.
+   </p>
+  </div>
+ </div></div></div></body></html>

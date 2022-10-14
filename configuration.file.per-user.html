@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>.user.ini فایل های</title>
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-base.css" />
+<link media="all" rel="stylesheet" type="text/css" href="styles/03e73060321a0a848018724a6c83de7f-theme-medium.css" />
+
+ </head>
+ <body class="docs"><div class="navbar navbar-fixed-top">
+  <div class="navbar-inner clearfix">
+    <ul class="nav" style="width: 100%">
+      <li style="float: left;"><a href="configuration.file.html">« فایل پیکربندی</a></li>
+      <li style="float: right;"><a href="configuration.changes.modes.html">جایی که تنظیمات پیکربندی انجام می&zwnj;شود »</a></li>
+    </ul>
+  </div>
+</div>
+<div id="breadcrumbs" class="clearfix">
+  <ul class="breadcrumbs-container">
+    <li><a href="index.html">PHP Manual</a></li>
+    <li><a href="configuration.html">پیکربندی زمان&zwnj;اجرا</a></li>
+    <li>.user.ini فایل های</li>
+  </ul>
+</div>
+<div id="layout">
+  <div id="layout-content"><div id="configuration.file.per-user" class="sect1">
+  <h2 class="title">.user.ini فایل های</h2>
+  
+  <p class="simpara">
+   PHP پشتیبانی از پیکربندی فایل های INI را در پوشه بر اساس هر پوشه شامل می‌شود.
+   این فایل  <em class="emphasis">تنها</em> توسط CGI/FastCGI SAPI پردازش می‌شوند.
+   این عملکرد اساس فهرست برنامه افزودنی PECL htscanner را منسوخ می کند.
+   اگر شما PHP را بر روی ماژول APACHE اجرا می‌کنید، از فایل های <var class="filename">.htaccess</var> برای اثر مشابه استفاده کنید.
+  </p>
+  
+  <p class="simpara">
+  علاوه‌بر کل فایل <var class="filename">php.ini</var> PHP با شروع از پوشه‌ای که فایل PHP درخواست شده در آن وجود دارد
+    تا به پوشه فعلی روت (همانطور که در <var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER['DOCUMENT_ROOT']</a></var> تنظیم شده است)
+     برای تمام فایل ها با پسوند .ini اسکن می‌کند.
+  </p>
+  <p class="simpara">
+  تنها فایل های INI با تنظیمات حالت  <strong><code>PHP_INI_PERDIR</code></strong>  و  <strong><code>PHP_INI_USER</code></strong> توسط فایل های INI شناخته خواهندشد.
+  </p>
+  
+  <p class="simpara">
+  دو دستورعمل جدید INI،
+     <a href="ini.core.html#ini.user-ini.filename" class="link">user_ini.filename</a> و
+   <a href="ini.core.html#ini.user-ini.cache-ttl" class="link">user_ini.cache_ttl</a>
+   کنترل فایل های INI کاربر را به عهده می‌گیرند.
+  </p>
+  
+  <p class="simpara">
+
+  <a href="ini.core.html#ini.user-ini.filename" class="link">user_ini.filename</a> نام فایل مورد نظر PHP را در هر دایرکتوری تعیین می کند;
+   اگر روی یک رشته خالی تنظیم شود، PHP اصلا اسکن نمی کند. را
+   پیش فرض <code class="literal">.user.ini</code> است
+  </p>
+  
+  <p class="simpara">
+   <a href="ini.core.html#ini.user-ini.cache-ttl" class="link">user_ini.cache_ttl</a> تعداد دفعات بازخوانی فایل های INI کاربر را کنترل می کند. پیش فرض 300 ثانیه (5 دقیقه) است.
+  </p>
+ </div></div></div></body></html>
