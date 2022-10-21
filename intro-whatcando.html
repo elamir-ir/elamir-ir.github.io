@@ -86,61 +86,71 @@
     PHP هم می‌تواند به عنوان یک ماژول و هم به عنوان یک CGI processor کار کند.
    </p>
    <p class="para">
-    So with PHP, you have the freedom of choosing an operating
-    system and a web server. Furthermore, you also have the choice
-    of using procedural programming or object-oriented
-    programming (OOP), or a mixture of them both.
+    با PHP، شما آزادید که سیستم عامل و وب‌سرور دل‌خواهتان
+    را انتخاب کنید. علاوه بر آن شما حق انتخاب بین برنامه‌نویسی
+    رویه‌ای (Procedural)، برنامه‌نویسی شیئ‌گرا (OOP) یا ترکیبی
+    از هردو را دارید.
    </p>
    <p class="para">
-    With PHP you are not limited to output HTML. PHP&#039;s abilities
-    includes outputting images, PDF files and even Flash movies
-    (using libswf and Ming) generated on the fly. You can also
-    output easily any text, such as XHTML and any other XML file.
-    PHP can autogenerate these files, and save them in the file
-    system, instead of printing it out, forming a server-side
-    cache for your dynamic content.
+    با PHP شما محدود به صرفا خروجی HTML گرفتن نیستید. توانایی
+    های PHP شامل خروجی دادن در لحظه عکس‌ها، فایل‌های PDF و حتی
+    کلیپ های Flash است (با استفاده از libswf و Ming). شما همچنین
+    می‌توانید هرنوع متنی را مثل XHTML و هر نوع دیگری از فایل XML
+    خروجی دهید. PHP می‌تواند به جای پرینت کردن، به شکل خودکار
+    این فایل‌ها را تولید کند و در راستای محتوای پویای شما
+    در قالب یک کَش سمت سرور در فایل‌سیستم ذخیره کند.
    </p>
    <p class="para">
-    One of the strongest and most significant features in PHP is its
-    support for a <a href="refs.database.html" class="link">wide range of databases</a>. 
-    Writing a database-enabled web page is incredibly simple using one of
-    the database specific extensions (e.g., for <a href="book.mysqli.html" class="link">mysql</a>),
-    or using an abstraction layer like <a href="book.pdo.html" class="link">PDO</a>, or connect
-    to any database supporting the Open Database Connection standard via the
-    <a href="book.uodbc.html" class="link">ODBC</a> extension. Other databases may utilize
-    <a href="book.curl.html" class="link">cURL</a> or <a href="book.sockets.html" class="link">sockets</a>,
-    like CouchDB.
+    یکی از قوی‌ترین و چشم‌گیر ترین ویژگی ها در PHP، پشتیبانی‌اش
+    از <a href="refs.database.html" class="link">طیف عظیمی از پایگاه‌های داده</a>
+    است. نوشتن یک صفحه وب پایگاه داده محور با استفاده از یکی
+    از افزونه‌های مختص به پایگاه‌داده
+    (مثل <a href="book.mysqli.html" class="link">mysql</a>)، یا با استفاده
+    از یک لایه انتزاعی (Abstraction Layer) مثل
+    <a href="book.pdo.html" class="link">PDO</a>، به طرز فوق‌العاده ای ساده است،
+    همینطور اتصال به هر پایگاه‌داده ای که از استاندارد
+    Open Database Connection از طریق افزونه
+    <a href="book.uodbc.html" class="link">ODBC</a> استفاده می‌کند.
+    سایر پایگاه‌های داده امکان دارد از <a href="book.curl.html" class="link">cURL</a>
+    یا <a href="book.sockets.html" class="link">sockets</a>، بهره ببرند
+    مثل like CouchDB.
    </p>
    <p class="para">
-    PHP also has support for talking to other services using protocols
-    such as LDAP, IMAP, SNMP, NNTP, POP3, HTTP, COM (on Windows) and
-    countless others. You can also open raw network sockets and
-    interact using any other protocol. PHP has support for the WDDX
-    complex data exchange between virtually all Web programming
-    languages. Talking about interconnection, PHP has support for
-    instantiation of Java objects and using them transparently
-    as PHP objects.
+    PHP همینطور از تعامل با سایر سرویس ها از طریق پروتکل‌های
+    LDAP، IMAP، SNMP، NNTP، POP3، HTTP، COM (روی ویندوز) و بسیاری دیگر
+    پشتیبانی می‌کند. شما همینطور می‌توانید سوکت شبکه های خامی باز کنید
+    و با استفاده از هر پروتکل دیگری اقدام به تعامل کنید. PHP از
+    تبادل داده پیچیده WDDX برای تقریبا تمام زبان‌های برنامه‌نویسی وب
+    پشتیبانی می‌کند. در مورد اتصال متقابل، PHP از نمونه‌سازی (Instantiation)
+    شیئ (Object) های جاوا و همینطور استفاده شفاف از آنها به عنوان
+    شیئ های PHP پشتیبانی می‌کند.
    </p>
    <p class="para">
-    PHP has useful <a href="refs.basic.text.html" class="link">text processing</a> features,
-    which includes the Perl compatible regular expressions (<a href="book.pcre.html" class="link">PCRE</a>),
-    and many extensions and tools to <a href="refs.xml.html" class="link">parse and access XML documents</a>.
-    PHP standardizes all of the XML extensions on the solid base of <a href="book.libxml.html" class="link">libxml2</a>,
-    and extends the feature set adding <a href="book.simplexml.html" class="link">SimpleXML</a>,
-    <a href="book.xmlreader.html" class="link">XMLReader</a> and <a href="book.xmlwriter.html" class="link">XMLWriter</a> support.
+    PHP دارای امکانات <a href="refs.basic.text.html" class="link">پردازش متن</a> پرکاربردی است،
+    شامل عبارت‌های با قاعده (Regular Expressions) سازگار با Perl،
+    (<a href="book.pcre.html" class="link">PCRE</a>) و افزونه‌ها و ابزارهای بسیاری برای
+    <a href="refs.xml.html" class="link">پردازش و دسترسی به اسناد XML</a>.
+    PHP تمام افزونه‌های XML را بر بستر پایدار<a href="book.libxml.html" class="link">libxml2</a>
+    استاندارد سازی می‌کند و فهرست امکانات را با اضافه کردن پشتیبانی
+    از <a href="book.simplexml.html" class="link">SimpleXML</a>،
+    <a href="book.xmlreader.html" class="link">XMLReader</a> و
+    <a href="book.xmlwriter.html" class="link">XMLWriter</a> گسترش می‌دهد.
    </p>
    <p class="para">
-    And many other interesting extensions exist, which are categorized both
-    <a href="extensions.html" class="link">alphabetically</a> and by <a href="funcref.html" class="link">category</a>.
-    And there are additional PECL extensions that may or may not be documented
-    within the PHP manual itself, like <a href="http://xdebug.org/" class="link external">&raquo;&nbsp;XDebug</a>.
+    و بسیاری افزونه‌های جالب دیگری که موجودند و بر حسب
+    <a href="extensions.html" class="link">الفبا</a>
+    یا بر حسب <a href="funcref.html" class="link">دسته‌بندی</a>
+    گروه‌بندی شده اند.
+    اضافه بر این، <a href="install.pecl.intro.html" class="link"> افزونه‌های PECL </a>
+    نیز وجود دارند که امکان دارد ذیل راهنمای PHP مستندسازی
+    بشوند یا نشوند، مثل <a href="http://xdebug.org/" class="link external">&raquo;&nbsp;XDebug</a>.
    </p>
    <p class="para">
-    As you can see this page is not enough to list all
-    the features and benefits PHP can offer. Read on in
-    the sections about <a href="install.html" class="link">installing
-    PHP</a>, and see the <a href="funcref.html" class="link">function
-    reference</a> part for explanation of the extensions
-    mentioned here.
+    همانطور که ملاحظه می‌کنید این صفحه برای فهرست کردن
+    تمام ویژگی‌ها و مزایایی که PHP ارائه می‌کند کافی نیست.
+    به خواندن در بخش های مربوط به
+    <a href="install.html" class="link">نصبPHP</a> ادامه دهید و سری به بخش
+    <a href="funcref.html" class="link">مرجع توابع</a> بزنید جهت خواندن
+    توضیحات افزونه های ذکر شده در اینجا.
    </p>
   </div></div></div></body></html>
